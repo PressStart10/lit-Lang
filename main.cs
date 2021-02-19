@@ -1,11 +1,15 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+class Seprite{
+		public Dictionary<string, string> varstorage=
+			new Dictionary<string, string>();
+		void Main (string[] args) {}
+	
+	}
 class MainClass {
-	Dictionary<string, string> varstorage=
-				new Dictionary<string, string>();
-	string variable;
-	public static string RemoveCOMMAND(string text) { text = text.Replace(".variablestring !SET. ", "").Replace(".filesystem !CREATETEXT. ", "").Replace(".filesystem !CODE_12. ",""); var oRegEx = new System.Text.RegularExpressions.Regex("<[^>]+>"); return oRegEx.Replace(text, string.Empty); }
+	static Seprite s = new Seprite();
+	public static string RemoveCOMMAND(string text) { text = text.Replace(".variablestring !SET. ", "").Replace(".variablestring !EDIT. ", "").Replace(".filesystem !CREATETEXT. ", "").Replace(".filesystem !CODE_12. ",""); var oRegEx = new System.Text.RegularExpressions.Regex("<[^>]+>"); return oRegEx.Replace(text, string.Empty); }
 	static void loop() {
 		ren();
 	}
@@ -15,7 +19,7 @@ class MainClass {
 		string et = Console.ReadLine();
 		if(et.Contains(".variablestring !SET.")){
 			variable = RemoveCOMMAND(et);
-			varstorage.Add(variable, "orange");
+			s.varstorage.Add(variable, "orange");
 			System.Random random = new System.Random(); 
 			int rtt = random.Next(50);
 			Console.WriteLine("litsystem_output_code:"+rtt+".litsystem_output: new var \""+variable+"\" set");
@@ -44,6 +48,7 @@ class MainClass {
 		}
 	}
   public static void Main (string[] args) {
+		
     Console.WriteLine("compile a .litsystem file or  run from command line.");
 		string choise = Console.ReadLine();
 		if(choise == "command line"){
