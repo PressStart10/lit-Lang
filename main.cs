@@ -9,7 +9,7 @@ class Seprite{
 	}
 class MainClass {
 	static Seprite s = new Seprite();
-	public static string RemoveCOMMAND(string text) { text = text.Replace("variable.get ", "").Replace("variable.new ", "").Replace("variable.edit ", "").Replace("sys.print ", "").Replace("sys.exit12",""); var oRegEx = new System.Text.RegularExpressions.Regex("<[^>]+>"); return oRegEx.Replace(text, string.Empty); }
+	public static string RemoveCOMMAND(string text) { text = text.Replace("variable.get ", "").Replace("variable.new ", "").Replace("variable.set ", "").Replace("sys.print ", "").Replace("sys.exit12",""); var oRegEx = new System.Text.RegularExpressions.Regex("<[^>]+>"); return oRegEx.Replace(text, string.Empty); }
 	static void loop() {
 		ren();
 	}
@@ -26,7 +26,7 @@ class MainClass {
 				Console.WriteLine(s.varstorage[e]);
 			}
 		}
-		if(et.Contains("variable.edit")){
+		if(et.Contains("variable.set")){
 			string y_tho = RemoveCOMMAND(et);
 			Console.Write("set variable "+ y_tho +" to:");
 			string ytho = Console.ReadLine();
