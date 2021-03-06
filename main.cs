@@ -17,6 +17,13 @@ class MainClass {
 		var variable = "";
 		Console.Write("litsystem.shell_input$ ");
 		string et = Console.ReadLine();
+		if(et == "/files/ list"){
+			string[] files = Directory.GetFiles(@"./", "*");
+        Console.WriteLine(String.Join(Environment.NewLine, files));
+			System.Random random = new System.Random(); 
+			int rtt = random.Next(50);
+			Console.WriteLine("litsystem_output_code:"+rtt);
+		}
 		if(et.Contains("variable.get")){
 			string e = RemoveCOMMAND(et);
 			if(s.varstorage[e] == ""){
@@ -25,6 +32,7 @@ class MainClass {
 			else{
 				Console.WriteLine(s.varstorage[e]);
 			}
+			loop();
 		}
 		if(et.Contains("variable.set")){
 			string y_tho = RemoveCOMMAND(et);
@@ -59,7 +67,7 @@ class MainClass {
 			System.Environment.Exit(12);
 		}
 		if(et == ".help."){
-			Console.WriteLine("command list and uses: \n sys.print{prints a string input} \n sys.exit12{ exits the program whith exit code (12) }\n variable.new {adds a variable}\n variable.set {edits a variable}\n variable.get{prints a variable}\nlitsystem output: \n litsystem_output_code: { prints the output code } \n litsystem_output:{ shows the output } \n litsystem.shell_input$ { command line input }");
+			Console.WriteLine("command list and uses: \n sys.print{prints a string input} \n sys.exit12{ exits the program whith exit code (12) }\n variable.new {adds a variable}\n variable.set {edits a variable}\n variable.get{prints a variable}\n /files/ list {lists files}\nlitsystem output: \n litsystem_output_code: { prints the output code } \n litsystem_output:{ shows the output } \n litsystem.shell_input$ { command line input }");
 			loop();
 		}
 		else{
