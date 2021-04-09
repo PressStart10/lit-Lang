@@ -17,9 +17,6 @@ class MainClass {
 		var variable = "";
 		Console.Write("litsystem.shell_input$ ");
 		string et = Console.ReadLine();
-		if(et == "run"){
-			System.Diagnostics.Process.Start("./extra/index.html");
-		}
 		if(et == "/files/ list"){
 			string[] files = Directory.GetFiles(@"./", "*");
         Console.WriteLine(String.Join(Environment.NewLine, files));
